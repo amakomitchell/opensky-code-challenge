@@ -1,2 +1,22 @@
-<p>dashboard works!</p>
-<p (click)="onLogout()">Logout</p>
+<div class="dashboard-container">
+
+    <div class="grid-container">
+        <div class="grid-list">
+            <mat-grid-list cols="3" rowHeight="2:1">
+                <mat-grid-tile>Atlanta</mat-grid-tile>
+                <mat-grid-tile>New York</mat-grid-tile>
+                <mat-grid-tile>Amsterdam</mat-grid-tile>
+                <mat-grid-tile>London</mat-grid-tile>
+                <mat-grid-tile>Berlin</mat-grid-tile>
+                <mat-grid-tile>Beijing</mat-grid-tile>
+                <mat-grid-tile>Dubai</mat-grid-tile>
+                <mat-grid-tile>Istanbul</mat-grid-tile>
+                <mat-grid-tile>Shanghai</mat-grid-tile>
+                <mat-grid-tile>Seoul</mat-grid-tile>
+            </mat-grid-list>
+        </div>
+    </div>
+
+    <div class="logout-container"><p (click)="onLogout()">Logout</p></div>
+</div>
+
