@@ -1,22 +1,23 @@
 <div class="dashboard-container">
 
+    <div class="logout-container">
+        <div (click)="onLogout()">Logout</div>
+    </div>
+
     <div class="grid-container">
         <div class="grid-list">
-            <mat-grid-list cols="3" rowHeight="2:1">
-                <mat-grid-tile>Atlanta</mat-grid-tile>
-                <mat-grid-tile>New York</mat-grid-tile>
-                <mat-grid-tile>Amsterdam</mat-grid-tile>
-                <mat-grid-tile>London</mat-grid-tile>
-                <mat-grid-tile>Berlin</mat-grid-tile>
-                <mat-grid-tile>Beijing</mat-grid-tile>
-                <mat-grid-tile>Dubai</mat-grid-tile>
-                <mat-grid-tile>Istanbul</mat-grid-tile>
-                <mat-grid-tile>Shanghai</mat-grid-tile>
-                <mat-grid-tile>Seoul</mat-grid-tile>
+            <mat-grid-list gutterSize="16px" cols="3" rowHeight="2:1" >
+                <mat-grid-tile *ngFor="let airport of airportsLists" (click)="openDialog()">
+                    <div class="airport-detail">
+                        {{ airport.airportCode }}
+                        <div class="airport-flights">
+                            Number of flights: {{ airport.flights.length }}
+                        </div>
+                    </div>
+                </mat-grid-tile>
             </mat-grid-list>
         </div>
     </div>
 
-    <div class="logout-container"><p (click)="onLogout()">Logout</p></div>
 </div>
 

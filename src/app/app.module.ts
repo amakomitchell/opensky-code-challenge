@@ -42,8 +42,10 @@ import {
   MatStepperModule,
   MatDatepickerModule,
   MatFormFieldModule,
+  MAT_DIALOG_DEFAULT_OPTIONS
 } from '@angular/material';
 import { HomeComponent } from './components/home/home.component';
+import { FlightDialogComponent } from './components/flight-dialog/flight-dialog.component';
 
 
 // @NgModule({
@@ -55,7 +57,8 @@ import { HomeComponent } from './components/home/home.component';
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    HomeComponent
+    HomeComponent,
+    FlightDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -96,7 +99,12 @@ import { HomeComponent } from './components/home/home.component';
     MatTooltipModule,
     MatFormFieldModule
   ],
-  providers: [],
+  entryComponents: [
+    FlightDialogComponent
+  ],
+  providers: [{provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true }}
+
+  ],
   bootstrap: [AppComponent]
 })
 
