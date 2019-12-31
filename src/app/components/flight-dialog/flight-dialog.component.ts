@@ -29,6 +29,7 @@ export interface DialogData {
 })
 export class FlightDialogComponent implements OnInit {
 
+  dataFetched: boolean = false;
   flightData: IFlightData[];
   displayedColumns = ['icao24', 'estDepartureAirport', 'estArrivalAirport', 'lastSeen', 'callsign'];
 
@@ -51,6 +52,7 @@ export class FlightDialogComponent implements OnInit {
     this.flightsService.getFlightsByArrival(this.data.airport)
       .pipe()
       .subscribe((data: IFlightData[]) => {
+        this.dataFetched = true;
         this.flightData = data;
       })
   }

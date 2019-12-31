@@ -19,7 +19,7 @@
         </mat-form-field>
     </div>
     <div class="dialog-body">
-        <table mat-table [dataSource]="flightData">
+        <table mat-table [dataSource]="flightData" *ngIf="dataFetched else loading">
 
             <!-- ICAO Number Column -->
             <ng-container matColumnDef="icao24">
@@ -60,3 +60,9 @@
         <button mat-button (click)="onNoClick()">Close</button>
     </div>    
 </div>
+
+<ng-template #loading>
+    <div class="loading-indicator">
+        <div>Fetching Data...</div>
+    </div>
+</ng-template>
