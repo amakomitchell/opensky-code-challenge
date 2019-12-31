@@ -20,15 +20,15 @@ export class FlightsService {
 
     // get flights by time
     getFlightsByTime() {
-        return this.http.get(`https://opensky-network.org/api/flights/all?begin=1517227200&end=1517230800`);
+        return this.http.get(`${environment.rootUrl}/flights/all?begin=1517227200&end=1517230800`);
     }
 
     getFlightsByArrival(airport: string) {
-        return this.http.get(`https://opensky-network.org/api/flights/arrival?airport=${airport}&begin=1517227200&end=1517230800`);
+        return this.http.get(`${environment.rootUrl}/flights/arrival?airport=${airport}&begin=1517227200&end=1517230800`);
     }
 
     getFlightsByDeparture(airport: string) {
-        return this.http.get(`https://opensky-network.org/api/flights/departure?airport=${airport}&begin=1517227200&end=1517230800`);
+        return this.http.get(`${environment.rootUrl}/flights/departure?airport=${airport}&begin=1517227200&end=1517230800`);
     }
 }
 
