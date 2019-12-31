@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSelectChange } from '@angular/material/select';
 import { FlightsService } from 'src/app/services/flights/flights.service';
 
 interface IFlightData {
@@ -54,10 +55,38 @@ export class FlightDialogComponent implements OnInit {
       .subscribe((data: IFlightData[]) => {
         this.dataFetched = true;
         this.flightData = data;
-      })
+      });
   }
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  handleSuccess(data: IFlightData[]) {
+    this.dataFetched = true;
+    this.flightData = data;
+  }
+
+  handleError(error) {
+    this.dataFetched = true;
+    this.flightData = [];
+  }
+
+  onFlightOptionChange(event: MatSelectChange) {
+    this.dataFetched = false;
+    switch (event.value) {
+      case 'Arrival':
+        this.flightsService.getFlightsByArrival(this.data.airport)
+          .pipe()
+          .subscribe(this.handleSuccess, this.handleError);
+        break;
+      case 'Departure':
+        this.flightsService.getFlightsByDeparture(this.data.airport)
+          .pipe()
+          .subscribe(this.handleSuccess, this.handleError);
+        break;
+      default:
+        break;
+    }
   }
 }

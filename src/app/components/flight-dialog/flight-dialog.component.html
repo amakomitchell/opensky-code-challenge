@@ -2,7 +2,7 @@
     <div class="dialog-header">
         <mat-form-field>
             <mat-label>Arrival / Departure</mat-label>
-            <mat-select [(value)]="flightTypeOption">
+            <mat-select [(value)]="flightTypeOption" (selectionChange)="onFlightOptionChange($event)">
                 <mat-option *ngFor="let flightOption of flightTypeSelectOptions" [value]="flightOption">
                     {{flightOption}}
                 </mat-option>
