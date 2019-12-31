@@ -8,9 +8,14 @@
 .dialog-body {
     display: flex;
     flex: 1;
+    overflow: auto;
 }
 
 .dialog-actions {
     display: flex;
     flex-direction: row-reverse;
+}
+
+table {
+    width: 100%;
 }

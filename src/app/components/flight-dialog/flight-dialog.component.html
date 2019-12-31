@@ -1,6 +1,41 @@
 <div class="dialog-container">
     <div class="dialog-body">
-        Airport Flights Details Here...
+        <table mat-table [dataSource]="flightData">
+
+            <!-- ICAO Number Column -->
+            <ng-container matColumnDef="icao24">
+                <th mat-header-cell *matHeaderCellDef> ICAO Number </th>
+                <td mat-cell *matCellDef="let flight"> {{flight.icao24}} </td>
+            </ng-container>
+
+            <!-- Departure Airport Column -->
+            <ng-container matColumnDef="estDepartureAirport">
+                <th mat-header-cell *matHeaderCellDef> Departure Airport </th>
+                <td mat-cell *matCellDef="let flight"> {{flight.estDepartureAirport}} </td>
+            </ng-container>
+
+            <!-- Arrival Airport Column -->
+            <ng-container matColumnDef="estArrivalAirport">
+                <th mat-header-cell *matHeaderCellDef> Arrival Airport </th>
+                <td mat-cell *matCellDef="let flight"> {{flight.estArrivalAirport}} </td>
+            </ng-container>
+
+            <!-- Last Seen Column -->
+            <ng-container matColumnDef="lastSeen">
+                <th mat-header-cell *matHeaderCellDef> Last Seen </th>
+                <td mat-cell *matCellDef="let flight"> {{flight.lastSeen}} </td>
+            </ng-container>
+
+            <!-- Call Sign Column -->
+            <ng-container matColumnDef="callsign">
+                <th mat-header-cell *matHeaderCellDef> Call Sign </th>
+                <td mat-cell *matCellDef="let flight"> {{flight.callsign}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
     </div>
     <div mat-dialog-actions class="dialog-actions">
         <button mat-button (click)="onNoClick()">Close</button>

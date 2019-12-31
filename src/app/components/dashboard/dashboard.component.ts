@@ -69,11 +69,11 @@ export class DashboardComponent implements OnInit {
       });
   }
 
-  openDialog(): void {
+  openDialog(airport: IAirportMap): void {
     const dialogRef = this.dialog.open(FlightDialogComponent, {
       width: '70vw',
-      height: '60vh',
-      data: {}
+      height: '70vh',
+      data: { airport: airport.airportCode }
     });
 
     dialogRef.afterClosed().subscribe(result => {

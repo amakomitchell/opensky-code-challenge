@@ -22,5 +22,9 @@ export class FlightsService {
     getFlightsByTime() {
         return this.http.get(`${environment.rootUrl}/flights/all?begin=1517227200&end=1517230800`);
     }
+
+    getFlightsByArrival(airport: string) {
+        return this.http.get(`${environment.rootUrl}/flights/arrival?airport=${airport}&begin=1517227200&end=1517230800`);
+    }
 }
 

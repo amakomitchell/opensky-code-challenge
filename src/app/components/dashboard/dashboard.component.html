@@ -7,7 +7,7 @@
     <div class="grid-container">
         <div class="grid-list">
             <mat-grid-list gutterSize="16px" cols="3" rowHeight="2:1" >
-                <mat-grid-tile *ngFor="let airport of airportsLists" (click)="openDialog()">
+                <mat-grid-tile *ngFor="let airport of airportsLists" (click)="openDialog(airport)">
                     <div class="airport-detail">
                         {{ airport.airportCode }}
                         <div class="airport-flights">
