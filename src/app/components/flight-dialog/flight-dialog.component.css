@@ -5,6 +5,13 @@
     width: 100%;
 }
 
+.dialog-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
 .dialog-body {
     display: flex;
     flex: 1;

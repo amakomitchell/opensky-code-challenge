@@ -1,4 +1,23 @@
 <div class="dialog-container">
+    <div class="dialog-header">
+        <mat-form-field>
+            <mat-label>Arrival / Departure</mat-label>
+            <mat-select [(value)]="flightTypeOption">
+                <mat-option *ngFor="let flightOption of flightTypeSelectOptions" [value]="flightOption">
+                    {{flightOption}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Flight Time</mat-label>
+            <mat-select [(value)]="flightTime">
+                <mat-option *ngFor="let flightTime of flightTimeOptions" [value]="flightTime">
+                    {{flightTime}} minutes
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
     <div class="dialog-body">
         <table mat-table [dataSource]="flightData">
 
